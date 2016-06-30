@@ -1,1 +1,11 @@
-<h1>My Skills</h1>
+<div class="container">
+<h1>Skill List</h1>
+<p>
+  <% @skills.each do |skill| %>
+    <h3>(<%= skill.id %>) <a href="/skills/<%= skill.id %>"><%=skill.title %></a></h3>
+  <% end %>
+</p>
+<br></br>
+<a class="btn btn-primary btn-lg" href="/skills/new">New Skill</a>
+
+</div>

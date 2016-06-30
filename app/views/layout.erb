@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html>
+<nav id ="layout_nav">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <form class="navbar-brand">
+      <img alt="Brand" id="image_brand" src="http://www.clipartbest.com/cliparts/yTo/M4r/yToM4rELc.png">
+  </div>
+  <a type="button" class="btn btn-default navbar-btn" href="/skills">Skill List</a>
+  <a type="button" class="btn btn-default navbar-btn" href="/skills/new">New Skill</a>
+</div>
+</nav>
 <head>
   <link rel="stylesheet" href="/application.css">
   <title>Skill Inventory</title>
 </head>
-<body>
-  <%= yield %>
-</body>
+<br></br>
+<div class="panel" id="body_panel">
+  <body>
+    <%= yield %>
+  </body>
+</div>
+</div>
 </html>
