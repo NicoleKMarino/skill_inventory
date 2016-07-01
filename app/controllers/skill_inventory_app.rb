@@ -1,4 +1,5 @@
 require "models/skill_inventory"
+require 'sqlite3'
 
 class SkillInventoryApp < Sinatra::Base
   set :root, File.join(File.dirname(__FILE__), '..')
@@ -12,15 +13,14 @@ class SkillInventoryApp < Sinatra::Base
     erb :main
   end
 
-
-  get '/skills/new' do
-    erb :new
-  end
-
   post '/skills' do
     skill_inventory.create(params[:skill])
     redirect "/skills"
   end
+
+    get '/skills/new' do
+      erb :new
+    end
 
   get '/skills/:id' do |id|
     @skills = skill_inventory.find(id.to_i)
@@ -28,13 +28,13 @@ class SkillInventoryApp < Sinatra::Base
   end
 
   get '/skills/:id/edit' do |id|
-  @task = skill_inventory.find(id.to_i)
+  @skills = skill_inventory.find(id.to_i)
   erb :edit
   end
 
-  get '/skills/clear' do
+  get '/clear' do
   skill_inventory.delete_all
-  redirect "/"
+  redirect "/skills"
   end
 
   def skill_inventory
