@@ -39,7 +39,7 @@ end
     end
 
     def update(id, skill)
-      @database.execute("UPDATE skills SET title= ?, description= ? WHERE id = ?;", skill[:title], skill[:description], id)
+        database.execute("UPDATE skills SET title= ?, description= ?, WHERE id = ?;", skill[:title], skill[:description], id)
     end
 
     def destroy(id)

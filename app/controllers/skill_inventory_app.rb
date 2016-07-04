@@ -27,10 +27,23 @@ class SkillInventoryApp < Sinatra::Base
     erb :show
   end
 
+
   get '/skills/:id/edit' do |id|
   @skills = skill_inventory.find(id.to_i)
   erb :edit
   end
+
+
+  post '/skills/:id' do |id|
+  skill_inventory.update(id.to_i, params[:skill])
+  redirect "/skills/#{id}"
+end
+
+  get '/skills/:id/delete' do |id|
+  skill_inventory.destroy(id.to_i, params[:skill])
+  redirect "/skills"
+  end
+
 
   get '/clear' do
   skill_inventory.delete_all

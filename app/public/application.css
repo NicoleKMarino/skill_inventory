@@ -1,3 +1,19 @@
+
+.skill-content {
+  height:100%;
+}
+
+.skill-container{
+  height:300px;
+  padding-bottom: 10px;
+}
+
+.skill-link{
+  color:black;
+  background-color:transparent;
+  text-decoration:none;
+}
+
 #image_brand {
   height:40px;
   width:40px;
@@ -25,6 +41,10 @@
   height:65px;
   width: 90%;
   background-color:#008B8B;
+}
+
+.special_p {
+  font-family:"Arial Black",sans-serif;
 }
 
 
