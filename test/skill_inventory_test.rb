@@ -1,58 +1,55 @@
-require_relative '../test_helper'
+require_relative 'test_helper'
 
 class SkillInventoryTest < Minitest::Test
-  include TestHelpers
+  include TestHelper
 
   def current_skill_id
-    task_manager.all.first.id
+    skill_inventory.all.first.id
   end
 
-  def test_it_creates_a_task
-    task_manager.create({title: "TDD", description: "Learn to test"})
+  def test_it_creates_a_skill
+    skill_inventory.create({title: "Bear Fighting ", description: "Bears aint shit"})
 
-    task = task_manager.find(current_task_id)
-    assert_equal "TDD", task.title
-    assert_equal "Learn to test", task.description
-    assert_equal current_task_id, task.id
+    skill = skill_inventory.find(current_skill_id)
+    assert_equal "Bear Fighting ", skill.title
+    assert_equal "Bears aint shit", skill.description
+    assert_equal current_skill_id, skill.id
   end
 
-  def  test_it_can_find_all_tasks
-    task_manager.create({title: "TDD", description: "Learn to test"})
-    task_manager.create({title: "TDD1", description: "Learn to test1"})
+  def  test_it_can_find_all_skills
+    skill_inventory.create({title: "Bear Fighting ", description: "Bears aint shit"})
+    skill_inventory.create({title: "Bear Fighting 1", description: "Bears aint shit1"})
 
-    tasks = task_manager.all
+    skills = skill_inventory.all
 
-    assert_equal 2, tasks.size
-    assert_equal "TDD", tasks.first.title
-    assert_equal "Learn to test", tasks.first.description
+    assert_equal 2, skills.size
+    assert_equal "Bear Fighting ", skills.first.title
+    assert_equal "Bears aint shit", skills.first.description
   end
 
-  def test_it_can_find_a_single_task
-    task_manager.create({title: "TDD", description: "Learn to test"})
+  def test_it_can_find_a_single_skill
+    skill_inventory.create({title: "Bear Fighting ", description: "Bears aint shit"})
 
-    task = task_manager.find(current_task_id)
+    skill = skill_inventory.find(current_skill_id)
 
-    assert_equal "TDD", task.title
-    assert_equal "Learn to test", task.description
+    assert_equal "Bear Fighting ", skill.title
+    assert_equal "Bears aint shit", skill.description
   end
 
-  def test_it_can_update_a_task
-    task_manager.create({title: "TDD", description: "Learn to test"})
-
-    task_manager.update(current_task_id, {title: "UPDATED TITLE", description: "New Description"})
-
-    task = task_manager.find(current_task_id)
-
-    assert_equal "UPDATED TITLE", task.title
+  def test_it_can_update_a_skill
+    skill_inventory.create({title: "Bear Fighting ", description: "Bears aint shit"})
+    skill_inventory.update(current_skill_id, {title: "title", description: " Description"})
+    skill = skill_inventory.find(current_skill_id)
+    assert_equal "title", skill.title
   end
 
-  def test_it_can_destroy_a_task
-    task_manager.create({title: "TDD", description: "Learn to test"})
+  def test_it_can_destroy_a_skill
+    skill_inventory.create({title: "Bear Fighting ", description: "Bears aint shit"})
 
-    assert_equal 1, task_manager.all.size
+    assert_equal 1, skill_inventory.all.size
 
-    task_manager.destroy(current_task_id)
+    skill_inventory.destroy(current_skill_id)
 
-    assert_equal 0, task_manager.all.size
+    assert_equal 0, skill_inventory.all.size
   end
 end

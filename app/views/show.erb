@@ -1,6 +1,6 @@
-<a class="btn btn-primary btn-lg" href="/skills">Skill Index</a>
+<a href="/skills">Skill Index</a>
 <h1><%=@skills.title %></h1>
-<!-- <p><%=@skills.image %></p> -->
-<p><%= @skills.description %></p>
+<img class ="index-image" src="<%=@skills.image%>" alt="...">
+<h3><%= @skills.description %></h3>
 <a class="btn btn-primary btn-lg" href="/skills/<%=@skills.id%>/edit">Edit Skill</a>
 <a class="btn btn-primary btn-lg" href="/skills/<%=@skills.id%>/delete">Delete Skill</a>

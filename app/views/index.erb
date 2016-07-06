@@ -4,7 +4,7 @@
   <% @skills.each do |skill| %>
   <div class="col-xs-offset-3 col-sm-offset-0 col-xs-6 col-md-4 col-lg-3 skill-container">
     <div class="thumbnail skill-content">
-      <img src="http://placehold.it/250x200" alt="...">
+      <img class ="index-image" src="<%=skill.image%>" alt="...">
       <div class="caption bottom-align">
         <h3><a class="skill-link" href="/skills/<%=skill.id%>"><%=skill.title%></a></h3>
         <p><%=skill.description%></p>

@@ -1,4 +1,3 @@
-require "models/skill_inventory"
 require 'sqlite3'
 
 class SkillInventoryApp < Sinatra::Base
